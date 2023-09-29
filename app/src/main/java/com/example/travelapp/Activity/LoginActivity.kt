@@ -2,9 +2,9 @@ package com.example.travelapp.Activity
 
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.travelapp.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
-        sharedPreferences=getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
         workingClass()
         googleLogin()
     }
@@ -43,7 +43,8 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode === 100) {
             // When request code is equal to 100 initialize task
-            val signInAccountTask: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val signInAccountTask: Task<GoogleSignInAccount> =
+                GoogleSignIn.getSignedInAccountFromIntent(data)
             // check condition
             if (signInAccountTask.isSuccessful()) {
                 // When google sign in successful initialize string
@@ -53,22 +54,28 @@ class LoginActivity : AppCompatActivity() {
                 try {
                     // Initialize sign in account
                     val googleSignInAccount: GoogleSignInAccount = signInAccountTask.getResult(
-                        ApiException::class.java)
+                        ApiException::class.java
+                    )
                     // Check condition
                     if (googleSignInAccount != null) {
                         // When sign in account is not equal to null initialize auth credential
-                        val authCredential = GoogleAuthProvider.getCredential(googleSignInAccount.idToken, null)
+                        val authCredential =
+                            GoogleAuthProvider.getCredential(googleSignInAccount.idToken, null)
                         // Check credential
                         auth.signInWithCredential(authCredential)
                             .addOnCompleteListener(this, OnCompleteListener<AuthResult?> { task ->
-                                    if (task.isSuccessful) {
-                                        startActivity(Intent(this@LoginActivity,
-                                            DashBoardActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                                if (task.isSuccessful) {
+                                    startActivity(
+                                        Intent(
+                                            this@LoginActivity,
+                                            DashBoardActivity::class.java
+                                        ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    )
 
-                                    } else {
+                                } else {
 
-                                    }
-                                })
+                                }
+                            })
                     }
                 } catch (e: ApiException) {
                     e.printStackTrace()
@@ -95,8 +102,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun workingClass() {
-        if (sharedPreferences.getBoolean("isLogin",false)== true)
-        {
+        if (sharedPreferences.getBoolean("isLogin", false) == true) {
             var intent = Intent(this@LoginActivity, DashBoardActivity::class.java)
             startActivity(intent)
             finish()
@@ -111,29 +117,20 @@ class LoginActivity : AppCompatActivity() {
 
 
         binding.btnLogin.setOnClickListener {
-            var email= binding.edtEmail.text.toString()
-            var password= binding.edtPassword.text.toString()
-            if (email.isEmpty())
-            {
+            var email = binding.edtEmail.text.toString()
+            var password = binding.edtPassword.text.toString()
+            if (email.isEmpty()) {
                 Toast.makeText(this, "please enter a valid email", Toast.LENGTH_SHORT).show()
-            }
-            else if (password.isEmpty())
-            {
+            } else if (password.isEmpty()) {
                 Toast.makeText(this, "please enter a password", Toast.LENGTH_SHORT).show()
-            }
-            else{
+            } else {
 
-                auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
-                    if (it.isSuccessful)
-                    {
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
                         Toast.makeText(this, "successfully logged in", Toast.LENGTH_SHORT).show()
-                        var myEdit: SharedPreferences.Editor = sharedPreferences.edit()
-                        myEdit.putBoolean("isLogin", true)
-                        myEdit.putString("email",email)
-                        myEdit.commit()
-                        var intent = Intent(this, DashBoardActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        var i = Intent(this,DashBoardActivity::class.java)
+                        startActivity(i)
+
                     }
 
                 }.addOnFailureListener {

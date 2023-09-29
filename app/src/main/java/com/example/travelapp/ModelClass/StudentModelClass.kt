@@ -10,7 +10,7 @@ class StudentModelClass {
     var email: String = ""
     var phonenumber: String = ""
     var Discription: String = ""
-    var city: String = ""
+    var Location: String = ""
     var price: String = ""
     var Rating: String = ""
     var key: String = ""
@@ -22,7 +22,7 @@ class StudentModelClass {
         email: String,
         phonenumber: String,
         discription: String,
-        city: String,
+        Location: String,
         price: String,
         rating: String,
         key: String,
@@ -37,7 +37,7 @@ class StudentModelClass {
         this.phonenumber = phonenumber
         this.Discription = discription
         this.key = key
-        this.city = city
+        this.Location = Location
         this.price = price
         this.Rating = rating
         this.Day= Day
@@ -48,5 +48,9 @@ class StudentModelClass {
     constructor() {
 
     }
+    data class DisplayCategoryModelData(
+        var shyari_id: Int, var shyari_item: String,
+        var category_id: Int,var status : Int
+    )
 
 }

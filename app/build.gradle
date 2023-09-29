@@ -100,4 +100,5 @@ dependencies {
     def lottieVersion = "6.0.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
+
 }

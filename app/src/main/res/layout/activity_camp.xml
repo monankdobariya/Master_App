@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activity.profileActivity">
+    tools:context=".Activity.CampActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPlace"
+                    android:id="@+id/edtPlaceName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Place Name"
@@ -71,24 +70,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Location"
-                    android:inputType="text" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                app:boxStrokeColor="@color/black"
-                app:hintEnabled="true"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtrate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Rate"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -122,85 +103,10 @@
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtDay"
+                    android:id="@+id/edtRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Day"
-                    android:inputType="text" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                app:boxStrokeColor="@color/black"
-                app:hintEnabled="true"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtdescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Discription"
-                    android:inputType="text" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                app:boxStrokeColor="@color/black"
-                app:hintEnabled="true"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtemail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Your E-mail"
-                    android:inputType="textEmailAddress" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                app:boxStrokeColor="@color/black"
-                app:hintEnabled="true"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtnumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Contact Number"
-                    android:inputType="number" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                app:boxStrokeColor="@color/black"
-                app:hintEnabled="true"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtFavourite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Favourite"
+                    android:hint="Enter Rate"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -227,15 +133,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--            <Button-->
-            <!--                android:id="@+id/Btnshow"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:layout_margin="@dimen/_10sdp"-->
-            <!--                android:text="Show"-->
-            <!--                android:textColor="@color/black" />-->
-
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

@@ -11,8 +11,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.travelapp.Fragment.FavouriteFragment
 import com.example.travelapp.Fragment.HomeFragment
+import com.example.travelapp.Fragment.MapsFragment
 import com.example.travelapp.Fragment.ProfileFragment
-import com.example.travelapp.Fragment.SearchFragment
 import com.example.travelapp.R
 import com.example.travelapp.databinding.ActivityDashBoardBinding
 import com.google.android.material.navigation.NavigationBarView
@@ -43,15 +43,19 @@ class DashBoardActivity : AppCompatActivity() {
                        fragment = HomeFragment()
                        loadFragment(fragment)
                    }
+                   R.id.location->{
+                       fragment=MapsFragment()
+                       loadFragment(fragment)
+                   }
 //                   R.id.search_bottom -> {
 //                       fragment = SearchFragment()
 //                       loadFragment(fragment)
 //
 //                   }
-//                   R.id.fav_bottom -> {
-//                       fragment = FavouriteFragment()
-//                      loadFragment(fragment)
-//                   }
+                   R.id.fav_bottom -> {
+                       fragment = FavouriteFragment()
+                      loadFragment(fragment)
+                   }
                    R.id.profile_bottom -> {
                        fragment = ProfileFragment()
                        loadFragment(fragment)

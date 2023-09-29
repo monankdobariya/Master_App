@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.travelapp.Activity.BeachActivity
+import com.example.travelapp.Activity.CampActivity
 import com.example.travelapp.Activity.LakesActivity
 import com.example.travelapp.Activity.LoginActivity
 import com.example.travelapp.Activity.MountainActivity
@@ -77,6 +78,10 @@ class ProfileFragment : Fragment() {
         }
         profileBinding.txtLakes.setOnClickListener {
             var i=Intent(context,LakesActivity::class.java)
+            startActivity(i)
+        }
+        profileBinding.txtCamp.setOnClickListener {
+            var i=Intent(context,CampActivity::class.java)
             startActivity(i)
         }
 

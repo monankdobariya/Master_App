@@ -1,33 +1,30 @@
 package com.example.travelapp.Activity
 
-
 import android.app.ProgressDialog
 import android.content.Intent
-import android.location.Location
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.travelapp.ModelClass.StudentModelClass
-import com.example.travelapp.databinding.ActivityProfileBinding
+import com.example.travelapp.ModelClass.MountainModalClass
+import com.example.travelapp.R
+import com.example.travelapp.databinding.ActivityCampBinding
+import com.example.travelapp.databinding.ActivityMountainBinding
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.util.UUID
 
+class CampActivity : AppCompatActivity() {
 
-class profileActivity : AppCompatActivity() {
-
-    lateinit var binding: ActivityProfileBinding
+    lateinit var binding: ActivityCampBinding
     private val PICK_IMAGE_REQUEST = 100
     lateinit var uri: Uri
     lateinit var ImageUri: Uri
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfileBinding.inflate(layoutInflater)
+        binding = ActivityCampBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initview()
@@ -51,32 +48,23 @@ class profileActivity : AppCompatActivity() {
             )
 
             binding.BtnAdd.setOnClickListener {
-                var palce = binding.edtPlace.text.toString()
+                var palce = binding.edtPlaceName.text.toString()
                 var Location = binding.edtLocation.text.toString()
-                var phonenumber = binding.edtnumber.text.toString()
-                var email = binding.edtemail.text.toString()
-                var price = binding.edtprice.text.toString()
-                var Discription = binding.edtdescription.text.toString()
-                var Rating = binding.edtrate.text.toString()
-                var Day=binding.edtDay.text.toString()
-                var Favourite=binding.edtFavourite.text.toString()
+                var Price = binding.edtprice.text.toString()
+                var Rate = binding.edtRate.text.toString()
 
-                var key = reference.root.child("AdminTb").push().key ?: ""
 
-                var modelClass = StudentModelClass(
+                var key = reference.root.child("CampTb").push().key ?: ""
+
+                var modelClass = MountainModalClass(
                     palce,
-                    email,
-                    phonenumber,
-                    Discription,
                     Location,
-                    price,
-                    Rating,
-                    Day,
-                    Favourite,
+                    Price,
+                    Rate,
                     key, ImageUri
                 )
 
-                reference.root.child("AdminTb").child(key).setValue(modelClass)
+                reference.root.child("CampTb").child(key).setValue(modelClass)
                     .addOnCompleteListener {
 
                         if (it.isSuccessful) {
@@ -89,8 +77,6 @@ class profileActivity : AppCompatActivity() {
 
         }
     }
-
-
     fun uploadImage() {
         if (uri != null) {
 
@@ -120,7 +106,7 @@ class profileActivity : AppCompatActivity() {
                         progressDialog.dismiss()
                         Toast
                             .makeText(
-                                this@profileActivity,
+                                this@CampActivity,
                                 "Image Uploaded!!",
                                 Toast.LENGTH_SHORT
                             )
@@ -130,7 +116,7 @@ class profileActivity : AppCompatActivity() {
                         progressDialog.dismiss()
                         Toast
                             .makeText(
-                                this@profileActivity,
+                                this@CampActivity,
                                 "Failed " + e.message,
                                 Toast.LENGTH_SHORT
                             )
@@ -140,8 +126,6 @@ class profileActivity : AppCompatActivity() {
             }
         }
     }
-
-
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -162,6 +146,5 @@ class profileActivity : AppCompatActivity() {
 
         }
     }
-
 
 }
